@@ -179,6 +179,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: order-service
+  instrumentation.opentelemetry.io/inject-nodejs: "true"
+  instrumentation.opentelemetry.io/inject-nodejs: "opentelemetry-operator-system/elastic-instrumentation"
 spec:
   replicas: 1
   selector:
@@ -262,6 +264,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: makeline-service
+  instrumentation.opentelemetry.io/inject-go: 'true'
+  instrumentation.opentelemetry.io/otel-go-auto-target-exe: '/main'
+  instrumentation.opentelemetry.io/inject-go: "opentelemetry-operator-system/elastic-instrumentation"
 spec:
   replicas: 1
   selector:
