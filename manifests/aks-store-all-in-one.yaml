@@ -182,8 +182,9 @@ metadata:
   labels:
     app: order-service
     opentelemetry.io/name: order-service
-  instrumentation.opentelemetry.io/inject-nodejs: "true"
-  instrumentation.opentelemetry.io/inject-nodejs: "opentelemetry-operator-system/elastic-instrumentation"
+  annotations:
+    instrumentation.opentelemetry.io/inject-nodejs: "true"
+    instrumentation.opentelemetry.io/inject-nodejs: "opentelemetry-operator-system/elastic-instrumentation"
 spec:
   replicas: 1
   selector:
@@ -191,8 +192,9 @@ spec:
       app: order-service
   template:
     metadata:
-      instrumentation.opentelemetry.io/inject-nodejs: "true"
-      instrumentation.opentelemetry.io/inject-nodejs: "opentelemetry-operator-system/elastic-instrumentation"
+      annotations:
+        instrumentation.opentelemetry.io/inject-nodejs: "true"
+        instrumentation.opentelemetry.io/inject-nodejs: "opentelemetry-operator-system/elastic-instrumentation"
       labels:
         app: order-service
         opentelemetry.io/name: order-service
@@ -270,9 +272,6 @@ metadata:
   labels:
     app: makeline-service
     opentelemetry.io/name: makeline-service
-  instrumentation.opentelemetry.io/inject-go: 'true'
-  instrumentation.opentelemetry.io/otel-go-auto-target-exe: '/main'
-  instrumentation.opentelemetry.io/inject-go: "opentelemetry-operator-system/elastic-instrumentation"
 spec:
   replicas: 1
   selector:
@@ -280,9 +279,10 @@ spec:
       app: makeline-service
   template:
     metadata:
-      instrumentation.opentelemetry.io/inject-go: 'true'
-      instrumentation.opentelemetry.io/otel-go-auto-target-exe: '/main'
-      instrumentation.opentelemetry.io/inject-go: "opentelemetry-operator-system/elastic-instrumentation"
+      annotations:
+        instrumentation.opentelemetry.io/inject-go: 'true'
+        instrumentation.opentelemetry.io/otel-go-auto-target-exe: '/main'
+        instrumentation.opentelemetry.io/inject-go: "opentelemetry-operator-system/elastic-instrumentation"
       labels:
         app: makeline-service
         opentelemetry.io/name: makeline-service
