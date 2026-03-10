@@ -182,9 +182,6 @@ metadata:
   labels:
     app: order-service
     opentelemetry.io/name: order-service
-  annotations:
-    instrumentation.opentelemetry.io/inject-nodejs: "true"
-    instrumentation.opentelemetry.io/inject-nodejs: "opentelemetry-operator-system/elastic-instrumentation"
 spec:
   replicas: 1
   selector:
@@ -193,7 +190,6 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-nodejs: "true"
         instrumentation.opentelemetry.io/inject-nodejs: "opentelemetry-operator-system/elastic-instrumentation"
       labels:
         app: order-service
@@ -282,7 +278,6 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-go: 'true'
         instrumentation.opentelemetry.io/otel-go-auto-target-exe: '/main'
         instrumentation.opentelemetry.io/inject-go: "opentelemetry-operator-system/elastic-instrumentation"
       labels:
